@@ -1,0 +1,62 @@
+body{
+    color: #14243a;
+}
+.inputs {
+    padding: 2px 5px;
+    margin: 10px 20px;
+}
+
+.row {
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 1px;
+    border-radius: 8px;
+    border: solid #06277f 2px;
+    background-color: #e6f0f0;
+}
+
+#curve_chart {
+    display: none;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 1px;
+    border-radius: 10px;
+    border: solid #06277f 3px;
+}
+
+table {
+    margin-top: 30px;
+}
+
+#convert_value {
+    color: #00571f;
+    font-size: 22px;
+    vertical-align: middle;
+    margin: 0 20px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: #009035 solid 2px;
+    background-color: #fff8c9;
+}
+
+.load{
+    z-index: 10000;
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    position: relative;
+}
+
+#loading {
+    height: 150px;
+    display: none;
+    margin: 80px auto;
+    position: relative;
+}
+
+#count{
+    width: 120px;
+}
+.text{
+    padding: 0 10px;
+}

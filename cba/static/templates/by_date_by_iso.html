@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block title %}By date by ISO{% endblock %}
+
+{% block by_date_by_iso %}
+    <div class="row">
+        <form method="post" name="get_data" id="get_data"
+              action="{% url 'by_date_by_iso' %}">
+            {% csrf_token %}
+            <span class="inputs">
+                <label for="date">Enter date</label>
+                <input type="date" value="{{ date }}" name="date" id="date"
+                       onchange="getDataFromSoap()">
+            </span>
+
+            <span class="inputs">
+                <label for="count">Change</label>
+                <input type="text" name="count" id="count" class="inputs"
+                       value="{{ count }}">
+                <select name="iso_codes" id="iso_codes" title="ISO">
+                    {% for val in iso_codes %}
+                        <option value="{{ val }}" {% if val == iso %}
+                                selected {% endif %}>
+                            {{ val }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <span class="text">TO AMD</span>
+                <input type="submit" value="Convert to" id="get_values"
+                       class="btn btn-success">
+
+                <span class="alert-danger"> {{ error }}</span>
+
+                {% if converted_value != '' %}
+                    <span id="convert_value" class="result">
+                    {{ converted_value }} դրամ
+                </span>
+                {% endif %}
+            </span>
+        </form>
+    </div>
+
+    <div id="table_data">
+        <!--Table from SOAP data-->
+    </div>
+
+{% endblock %}

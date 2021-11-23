@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Chart drawer{% endblock %}
+
+{% block draw_graphic %}
+    <div class="row">
+        <form method="post" name="draw_form" id="draw_form">
+            {% csrf_token %}
+            <span class="inputs">
+                <label for="start_date">Start date</label>
+                <input type="date" name="start_date" id="start_date">
+            </span>
+
+            <span class="inputs">
+                <label for="end_date">End date</label>
+                <input type="date" name="end_date" id="end_date">
+            </span>
+
+            <span class="inputs">
+            <label for="iso">ISO</label>
+            <select name="iso" id="iso">
+                {% for iso in iso_codes %}
+                    <option value="{{ iso }}">
+                        {{ iso }}
+                    </option>
+                {% endfor %}
+            </select>
+            </span>
+
+            <span class="inputs">
+                <span id="draw" class="btn btn-success"
+                      onclick="drawGoogleChart()"> Draw </span>
+            </span>
+        </form>
+    </div>
+    <br>
+    <div class="load">
+        <img alt="Please wait ..." id="loading"
+             src="{% static 'images/loading.gif' %}">
+    </div>
+
+    <div id="curve_chart">
+        <!-- GOOGLE CHARTS DIAGRAM -->
+    </div>
+
+{% endblock %}
